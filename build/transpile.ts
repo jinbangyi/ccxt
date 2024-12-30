@@ -56,7 +56,7 @@ if (platform === 'win32') {
 class Transpiler {
 
     buildPython = true;
-    buildPHP = true;
+    buildPHP = false;
 
     baseMethodsList = null;
 
@@ -2891,7 +2891,7 @@ class Transpiler {
 
             this.transpileTests ()
 
-            this.transpileExamples ()
+            // this.transpileExamples ()
 
             this.addGeneratedHeaderToJs ('./js/')
         }

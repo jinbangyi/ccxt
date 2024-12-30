@@ -661,16 +661,16 @@ async function exportEverything () {
             regex: /exchanges \= \[[^\]]+\]/,
             replacement: "exchanges = [\n" + "    '" + ids.join ("',\n    '") + "'," + "\n]",
         },
-        {
-            file: './php/Exchange.php',
-            regex: /public static \$exchanges \= array\s*\([^\)]+\)/,
-            replacement: "public static $exchanges = array(\n        '" + ids.join ("',\n        '") + "',\n    )",
-        },
-        {
-            file: './php/pro/Exchange.php',
-            regex: /Exchange::\$exchanges \= array\s*\([^\)]+\)/,
-            replacement: "Exchange::$exchanges = array(\n    '" + wsIds.join ("',\n    '") + "',\n)",
-        },
+        // {
+        //     file: './php/Exchange.php',
+        //     regex: /public static \$exchanges \= array\s*\([^\)]+\)/,
+        //     replacement: "public static $exchanges = array(\n        '" + ids.join ("',\n        '") + "',\n    )",
+        // },
+        // {
+        //     file: './php/pro/Exchange.php',
+        //     regex: /Exchange::\$exchanges \= array\s*\([^\)]+\)/,
+        //     replacement: "Exchange::$exchanges = array(\n    '" + wsIds.join ("',\n    '") + "',\n)",
+        // },
         {
             file: './python/ccxt/pro/__init__.py',
             regex: /(?:from ccxt\.pro\.[^\.]+ import [^\s]+\s+\# noqa\: F401[\r]?[\n])+[\r]?[\n]exchanges/,
@@ -681,11 +681,11 @@ async function exportEverything () {
             regex: /exchanges \= \[[^\]]+\]/,
             replacement: "exchanges = [\n" + "    '" + wsIds.join ("',\n    '") + "'," + "\n]",
         },
-        {
-            file: './cs/ccxt/base/Exchange.MetaData.cs',
-            regex: /public static List<string> exchanges =.+$/gm,
-            replacement: `public static List<string> exchanges = new List<string> { ${ids.map(i=>`"${i}"`).join(', ')} };`,
-        },
+        // {
+        //     file: './cs/ccxt/base/Exchange.MetaData.cs',
+        //     regex: /public static List<string> exchanges =.+$/gm,
+        //     replacement: `public static List<string> exchanges = new List<string> { ${ids.map(i=>`"${i}"`).join(', ')} };`,
+        // },
     ]
 
     exportExchanges (replacements, unlimitedLog)

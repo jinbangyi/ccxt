@@ -232,8 +232,7 @@ class SHA384 extends SHA512 {
 const sha512 = utils.wrapConstructor(() => new SHA512());
 utils.wrapConstructor(() => new SHA512_224());
 utils.wrapConstructor(() => new SHA512_256());
-const sha384 = utils.wrapConstructor(() => new SHA384());
+utils.wrapConstructor(() => new SHA384());
 
 exports.SHA512 = SHA512;
-exports.sha384 = sha384;
 exports.sha512 = sha512;
